@@ -1,12 +1,8 @@
-import { BarChart2, Home, Snowflake, Users, Wallet } from "lucide-react";
+import { BarChart2, Home, Users, Wallet } from "lucide-react";
 import { Button } from "../ui/button";
-import React, { useCallback } from 'react';
-import { useTonConnectUI, useTonAddress, useTonWallet, SendTransactionRequest } from '@tonconnect/ui-react';
+import { useCallback } from 'react';
+import { useTonConnectUI, useTonWallet, SendTransactionRequest } from '@tonconnect/ui-react';
 import { toast } from 'react-toastify';
-
-const splashScreenImages = [
-  "/images/splash-screen/bg.png",
-];
 
 export default function SplashScreen() {
   const wallet = useTonWallet();
@@ -25,9 +21,6 @@ export default function SplashScreen() {
     };
     console.log(transaction)
     
-
-    const userFriendlyAddress = useTonAddress();
-    const rawAddress = useTonAddress(false);
     const disconnectWallet = useCallback(async () => {
         try {
             if (tonConnectUI) {
